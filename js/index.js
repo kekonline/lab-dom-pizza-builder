@@ -1,7 +1,7 @@
 // Write your Pizza Builder JavaScript in this file.
 
 // Constants
-const basePrice = 10;
+let basePrice = 21;
 const ingredients = {
   pepperoni: { name: 'pepperoni', price: 1 },
   mushrooms: { name: 'Mushrooms', price: 1 },
@@ -133,27 +133,27 @@ let total = 15;
 
     if (state.pepperoni === false && elem.innerText === '$1 pepperoni') {
       elem.remove();
-      total--
+      basePrice--
     }
 
     if (state.mushrooms === false && elem.innerText === '$1 mushrooms') {
       elem.remove();
-      total--
+      basePrice--
     }
     if (state.greenPeppers === false && elem.innerText === '$1 green peppers') {
       elem.remove();
-      total--
+      basePrice--
     }
     if (state.whiteSauce === false && elem.innerText === '$3 white sauce') {
       elem.remove();
-      total-= -3
+      basePrice= basePrice-3
     }
     if (
       state.glutenFreeCrust === false &&
       elem.innerText === '$5 gluten-free crust'
     ) {
       elem.remove();
-      total-= -5
+      basePrice= basePrice-5
     }
   });
 
@@ -168,7 +168,7 @@ let total = 15;
   ) {
     newElem.innerText = '$1 pepperoni';
     container.appendChild(newElem);
-    total++
+    basePrice++
   }
 
   if (
@@ -177,7 +177,7 @@ let total = 15;
   ) {
     newElem.innerText = '$1 mushrooms';
     container.appendChild(newElem);
-    total++
+    basePrice++
   }
   
   if (
@@ -186,7 +186,7 @@ let total = 15;
   ) {
     newElem.innerText = '$1 green peppers';
     container.appendChild(newElem);
-    total++
+    basePrice++
   }
 
   if (
@@ -195,7 +195,7 @@ let total = 15;
   ) {
     newElem.innerText = '$3 white sauce';
       container.appendChild(newElem);
-      total+= 3
+      basePrice= basePrice+3
   }
 
   if (
@@ -204,12 +204,12 @@ let total = 15;
   ) {
     newElem.innerText = '$5 gluten-free crust';
       container.appendChild(newElem);
-      total+= 5
+      basePrice= basePrice+5
   }
 
 
  
-  document.querySelector('.price strong').innerText=total
+  document.querySelector('.price strong').innerText="$"+basePrice
 
 
 
